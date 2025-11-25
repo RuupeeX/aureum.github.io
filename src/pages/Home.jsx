@@ -1,6 +1,6 @@
 import React from "react";
 import { motion } from "framer-motion";
-import { Link } from 'react-router-dom';
+import { Link } from "react-router-dom";
 import SectionWrapper from "../components/SectionWrapper";
 import ProductCard from "../components/ProductCard";
 import { products } from "../data/products";
@@ -24,7 +24,7 @@ const Home = () => {
   };
 
   return (
-    <div className="pt-16">
+    <div className="pt-20">
       {/* Hero Section con Video */}
       <section className="relative h-screen flex items-center justify-center bg-gradient-to-br from-amber-50 to-white overflow-hidden">
         <div className="absolute inset-0 bg-black/60 z-0"></div>
@@ -40,9 +40,9 @@ const Home = () => {
             filter: "brightness(0.5)",
             animationDuration: "8s",
           }}
-          playbackRate={8} // Reduce velocidad de reproducción
+          playbackRate={8}
         >
-          <source src="../../public/video/herovideo.mp4" type="video/mp4" />
+          <source src="../../public/video/bannervideo.mp4" type="video/mp4" />
           {/* Fallback por si el video no carga */}
           <div
             className="absolute inset-0 bg-cover bg-center"
@@ -139,7 +139,7 @@ const Home = () => {
           </motion.div>
 
           <motion.div
-            className="relative h-80 rounded-2xl overflow-hidden shadow-2xl"
+            className="relative h-96 rounded-2xl overflow-hidden shadow-2xl" 
             variants={fadeInUp}
             whileHover={{ scale: 1.02 }}
             transition={{ duration: 0.3 }}
@@ -147,8 +147,8 @@ const Home = () => {
             <div
               className="absolute inset-0 bg-cover bg-center z-0"
               style={{
-                backgroundImage: "url('../../public/images/hero.png')",
-                backgroundSize: "100%",
+                backgroundImage: "url('../../public/images/history.png')",
+                backgroundSize: "cover", 
               }}
             ></div>
           </motion.div>
@@ -252,9 +252,7 @@ const Home = () => {
             viewport={{ once: true }}
             transition={{ delay: 0.4, duration: 0.6 }}
           >
-            <Link to="/productos"
-            onClick={() => window.scrollTo(0, 0)}
-            >
+            <Link to="/productos" onClick={() => window.scrollTo(0, 0)}>
               <motion.button
                 className="group bg-amber-600 hover:bg-white text-white hover:text-amber-600 px-14 py-4 rounded-[12px] font-semibold text-lg transition-all duration-300 transform hover:scale-105 shadow-lg border-2 border-amber-600 hover:border-amber-700 flex items-center space-x-3 mx-auto"
                 whileHover={{ scale: 1.05 }}

@@ -15,8 +15,12 @@ const Footer = () => {
             viewport={{ once: true }}
           >
             <div className="flex items-center space-x-2 mb-4">
-              <div className="w-8 h-8 bg-amber-600 rounded-full"></div>
-              <span className="text-2xl font-serif font-bold">Aureum</span>
+              {/* Logo */}
+              <img 
+                src="../../public/images/logoau.png" 
+                alt="Aureum Logo" 
+                className="h-16 w-auto" 
+              />
             </div>
             <p className="text-gray-400 mb-4">
               Aceite de Oliva Premium & Artesanal desde 2025
@@ -26,7 +30,7 @@ const Footer = () => {
                 <motion.a
                   key={index}
                   href="#"
-                  className="w-10 h-10 bg-gray-800 rounded-full flex items-center justify-center hover:bg-amber-600 transition-colors duration-300"
+                  className="w-10 h-10 bg-gray-800 rounded-full flex items-center justify-center hover:bg-amber-300 transition-colors duration-300"
                   whileHover={{ scale: 1.1, y: -2 }}
                 >
                   <Icon className="w-5 h-5" />
@@ -44,15 +48,15 @@ const Footer = () => {
             <h3 className="text-lg font-bold mb-4">Contacto</h3>
             <div className="space-y-3">
               <div className="flex items-center space-x-3 text-gray-400">
-                <MapPin className="w-5 h-5 text-amber-600" />
+                <MapPin className="w-5 h-5 text-amber-300" />
                 <span>Madrid, España</span>
               </div>
               <div className="flex items-center space-x-3 text-gray-400">
-                <Phone className="w-5 h-5 text-amber-600" />
+                <Phone className="w-5 h-5 text-amber-300" />
                 <span>+34 912 345 678</span>
               </div>
               <div className="flex items-center space-x-3 text-gray-400">
-                <Mail className="w-5 h-5 text-amber-600" />
+                <Mail className="w-5 h-5 text-amber-300" />
                 <span>info@aureum.com</span>
               </div>
             </div>

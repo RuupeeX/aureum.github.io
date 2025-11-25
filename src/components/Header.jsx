@@ -19,10 +19,12 @@ const Header = () => {
             className="flex items-center space-x-2"
             whileHover={{ scale: 1.05 }}
           >
-            <div className="w-8 h-8 bg-amber-600 rounded-full"></div>
-            <span className="text-2xl font-serif font-bold text-gray-900">
-              Aureum
-            </span>
+            {/* logo */}
+            <img 
+              src="../../public/images/logoau.png" 
+              alt="Aureum Logo" 
+              className="h-16 w-auto" // Cambiado de h-12 a h-16
+            />
           </motion.div>
           <nav className="hidden md:flex items-center space-x-8">
             {["Inicio", "Productos", "Historia", "Calidad"].map((item) => (

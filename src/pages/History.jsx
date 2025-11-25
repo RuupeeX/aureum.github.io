@@ -396,7 +396,7 @@ const History = () => {
   ];
 
   return (
-    <div className="  pt-20">
+    <div className="pt-20">
       {/* Hero Section */}
       <section className="relative bg-gradient-to-br from-amber-50 to-amber-100 text-black py-20 overflow-hidden">
         <div className="container mx-auto px-4 text-center">
