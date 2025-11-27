@@ -1,7 +1,17 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { useParams, Link, useNavigate } from 'react-router-dom';
-import { ArrowLeft, ShoppingCart, Star, Truck, Shield } from 'lucide-react';
+import { 
+  ArrowLeft, 
+  ShoppingCart, 
+  Star, 
+  Truck, 
+  Shield, 
+  LeafyGreen,
+  Zap,
+  Award, 
+  CalendarDays 
+} from 'lucide-react'; 
 import { products } from '../data/products';
 import { useCart } from '../context/CartContext';
 
@@ -35,7 +45,7 @@ const ProductDetail = () => {
         <div className="container mx-auto px-4 py-4">
           <button
             onClick={() => navigate(-1)}
-            className="flex items-center space-x-2 text-gray-600 hover:text-amber-600 transition-colors duration-300"
+            className="flex items-center space-x-2 text-gray-600 hover:text-amber-600 transition-colors duration-300 mt-4"
           >
             <ArrowLeft className="w-5 h-5" />
             <span>Volver</span>
@@ -99,13 +109,14 @@ const ProductDetail = () => {
               {/* Características */}
               <div className="grid grid-cols-2 gap-4 py-4">
                 {[
-                  { icon: '🌿', text: '100% Natural' },
-                  { icon: '⚡', text: 'Extracción en frío' },
-                  { icon: '🏆', text: 'Premiado' },
-                  { icon: '📅', text: 'Cosecha 2024' }
+                  { icon: LeafyGreen, text: '100% Natural' },
+                  { icon: Zap, text: 'Extracción en frío' },
+                  { icon: Award, text: 'Premiado' },
+                  { icon: CalendarDays, text: 'Cosecha 2024' }
                 ].map((item, index) => (
                   <div key={index} className="flex items-center space-x-2">
-                    <span className="text-2xl">{item.icon}</span>
+                    {/* Renderizamos el componente del icono */}
+                    <item.icon className="w-5 h-5 text-amber-600" />
                     <span className="text-gray-600">{item.text}</span>
                   </div>
                 ))}

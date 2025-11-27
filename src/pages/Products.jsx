@@ -3,6 +3,8 @@ import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import { products } from '../data/products';
 import { useCart } from '../context/CartContext';
+// Importamos los iconos de Lucide-React
+import { Truck, Package, Gem, Star, Frown } from 'lucide-react'; 
 
 const Products = () => {
   const { addToCart } = useCart();
@@ -109,7 +111,10 @@ const Products = () => {
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
             >
-              <div className="text-6xl mb-4">😔</div>
+              {/* Reemplazo de 😔 por Frown */}
+              <div className="text-6xl mb-4 flex justify-center">
+                <Frown className="w-16 h-16 text-gray-400" />
+              </div>
               <h3 className="text-2xl font-bold text-gray-900 mb-2">No hay productos en esta categoría</h3>
               <p className="text-gray-600 mb-6">Prueba con otra categoría para descubrir nuestros productos</p>
               <button
@@ -167,7 +172,12 @@ const Products = () => {
                     <div className="flex items-center justify-between mb-4">
                       <span className="text-2xl font-bold text-amber-600">€{product.price}</span>
                       <div className="flex items-center space-x-1 text-amber-500">
-                        {'★'.repeat(5)}
+                        {/* Reemplazo de ★ por Star (usando un icono) */}
+                        <Star className="w-4 h-4 fill-amber-500" />
+                        <Star className="w-4 h-4 fill-amber-500" />
+                        <Star className="w-4 h-4 fill-amber-500" />
+                        <Star className="w-4 h-4 fill-amber-500" />
+                        <Star className="w-4 h-4 fill-amber-500" />
                       </div>
                     </div>
                     
@@ -207,17 +217,17 @@ const Products = () => {
           >
             {[
               {
-                icon: '🚚',
+                icon: Truck, 
                 title: 'Envío Gratis',
                 description: 'En pedidos superiores a €50'
               },
               {
-                icon: '📦',
+                icon: Package, 
                 title: 'Embalaje Premium',
                 description: 'Presentación exclusiva para regalo'
               },
               {
-                icon: '💎',
+                icon: Gem, 
                 title: 'Calidad Garantizada',
                 description: 'Aceite de oliva virgen extra certificado'
               }
@@ -230,7 +240,10 @@ const Products = () => {
                 viewport={{ once: true }}
                 transition={{ delay: index * 0.2 }}
               >
-                <div className="text-4xl mb-4">{item.icon}</div>
+                {/* Renderizamos el componente del icono */}
+                <div className="text-4xl mb-4 flex justify-center">
+                    <item.icon className="w-10 h-10 text-amber-600" />
+                </div>
                 <h3 className="text-xl font-bold text-gray-900 mb-2">{item.title}</h3>
                 <p className="text-gray-600">{item.description}</p>
               </motion.div>

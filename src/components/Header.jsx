@@ -21,7 +21,7 @@ const Header = () => {
           >
             {/* logo */}
             <img 
-              src="../../public/images/logoau.png" 
+              src="/images/logoau.png" 
               alt="Aureum Logo" 
               className="h-16 w-auto" // Cambiado de h-12 a h-16
             />

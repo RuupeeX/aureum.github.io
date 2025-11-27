@@ -17,7 +17,7 @@ const Footer = () => {
             <div className="flex items-center space-x-2 mb-4">
               {/* Logo */}
               <img 
-                src="../../public/images/logoau.png" 
+                src="/images/logoau.png" 
                 alt="Aureum Logo" 
                 className="h-16 w-auto" 
               />

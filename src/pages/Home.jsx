@@ -5,6 +5,8 @@ import SectionWrapper from "../components/SectionWrapper";
 import ProductCard from "../components/ProductCard";
 import { products } from "../data/products";
 import { useCart } from "../context/CartContext";
+// Importamos los iconos de Lucide-React
+import { Leaf, Hourglass, FlaskConical } from "lucide-react"; 
 
 const Home = () => {
   const { addToCart } = useCart();
@@ -40,7 +42,10 @@ const Home = () => {
             filter: "brightness(0.5)",
             animationDuration: "8s",
           }}
-          playbackRate={8}
+          // Se elimina playbackRate que no es una propiedad de estilo estándar, si se desea
+          // controlarlo se haría vía JavaScript o si fuera una librería específica.
+          // En este caso, lo he comentado para evitar warnings, si es que lo causaba.
+          // playbackRate={8} 
         >
           <source src="../../public/video/bannervideo.mp4" type="video/mp4" />
           {/* Fallback por si el video no carga */}
@@ -170,19 +175,19 @@ const Home = () => {
           <div className="grid md:grid-cols-3 gap-8">
             {[
               {
-                icon: "🌿",
+                icon: Leaf, // 🌿
                 title: "Cultivo Sostenible",
                 description:
                   "Olivos centenarios cultivados de forma ecológica y sostenible.",
               },
               {
-                icon: "⏳",
+                icon: Hourglass, // ⏳
                 title: "Recolección Manual",
                 description:
                   "Selección manual de aceitunas en su punto óptimo de maduración.",
               },
               {
-                icon: "⚗️",
+                icon: FlaskConical, // ⚗️
                 title: "Extracción en Frío",
                 description:
                   "Proceso de extracción a baja temperatura para preservar nutrientes.",
@@ -197,7 +202,10 @@ const Home = () => {
                 transition={{ delay: index * 0.2, duration: 0.6 }}
                 whileHover={{ y: -5 }}
               >
-                <div className="text-4xl mb-4">{item.icon}</div>
+                {/* Renderizamos el componente del icono de Lucide */}
+                <div className="text-4xl mb-4 flex justify-center">
+                    <item.icon className="w-10 h-10 text-amber-600" /> {/* Ajustado el tamaño y color */}
+                </div>
                 <h3 className="text-xl font-bold text-gray-900 mb-3">
                   {item.title}
                 </h3>

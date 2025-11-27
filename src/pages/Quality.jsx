@@ -1,6 +1,18 @@
 import React from "react";
 import { motion } from "framer-motion";
 import SectionWrapper from "../components/SectionWrapper";
+// Importamos los nuevos iconos de Lucide-React
+import {
+  TreeDeciduous,
+  Hourglass,
+  FlaskRound,
+  Microscope,
+  Mountain,
+  BarChart3,
+  Recycle,
+  CheckCircle, 
+  LeafyGreen
+} from "lucide-react";
 
 const Quality = () => {
   const processData = [
@@ -15,7 +27,7 @@ const Quality = () => {
         "Suelos calcáreos con excelente drenaje",
         "Riego natural por lluvia (secano)",
       ],
-      icon: "🌳",
+      icon: TreeDeciduous, // Reemplazo de 🌳
       color: "amber-800",
       borderColor: "border-amber-800",
       textColor: "text-amber-800",
@@ -35,7 +47,7 @@ const Quality = () => {
         "Selección rigurosa aceituna por aceituna",
         "Transporte en cajas de plástico alimentario ventiladas",
       ],
-      icon: "⏱️",
+      icon: Hourglass, // Reemplazo de ⏱️
       color: "amber-600",
       borderColor: "border-amber-600",
       textColor: "text-amber-600",
@@ -55,7 +67,7 @@ const Quality = () => {
         "Extracción lenta sin aditivos ni conservantes",
         "Ediciones limitadas numeradas y certificadas",
       ],
-      icon: "⚱️",
+      icon: FlaskRound, // Reemplazo de ⚱️
       color: "amber-400",
       borderColor: "border-amber-400",
       textColor: "text-amber-400",
@@ -75,7 +87,7 @@ const Quality = () => {
         "Tanques de acero inoxidable inertizados con nitrógeno",
         "Análisis continuo de parámetros de calidad",
       ],
-      icon: "🔬",
+      icon: Microscope, // Reemplazo de 🔬
       color: "amber-200",
       borderColor: "border-amber-200",
       textColor: "text-amber-200",
@@ -137,28 +149,28 @@ const Quality = () => {
       organization: "UE Reg. 834/2007",
       description:
         "Certificación que garantiza prácticas agrícolas sostenibles sin químicos sintéticos",
-      icon: "🌱",
+      icon: LeafyGreen, 
     },
     {
       name: "DOP Valle Escondido",
       organization: "Unión Europea",
       description:
         "Denominación de Origen Protegida que asegura origen y métodos tradicionales",
-      icon: "🏞️",
+      icon: Mountain,
     },
     {
       name: "ISO 9001:2015",
       organization: "International Organization for Standardization",
       description:
         "Sistema de gestión de calidad para procesos consistentes y mejora continua",
-      icon: "📊",
+      icon: BarChart3, 
     },
     {
       name: "Producción Sostenible",
       organization: "AENOR",
       description:
         "Compromiso verificable con prácticas ambientalmente responsables",
-      icon: "♻️",
+      icon: Recycle, 
     },
   ];
 
@@ -201,29 +213,35 @@ const Quality = () => {
     },
   ];
 
+  // Componente de icono para las listas, usando CheckCircle de Lucide
+  const ListIcon = ({ colorClass }) => (
+    <CheckCircle className={`w-4 h-4 ${colorClass}`} />
+  );
+
+
   return (
     <div className="pt-20">
       {/* Hero Section */}
-            <section className="relative bg-gradient-to-br from-amber-50 to-amber-100 text-black py-20 overflow-hidden">
-              <div className="container mx-auto px-4 text-center">
-                <motion.h1 
-                  className="text-5xl md:text-6xl font-bold text-gray-900 mb-6 font-serif"
-                  initial={{ opacity: 0, y: 30 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ delay: 0.3, duration: 0.8 }}
-                >
-                  Calidad y Producción
-                </motion.h1>
-                <motion.p 
-                  className="text-xl text-gray-600 max-w-2xl mx-auto"
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ delay: 0.5, duration: 0.8 }}
-                >
-                  Donde la excelencia se encuentra con la tradición en cada gota
-                </motion.p>
-              </div>
-            </section>
+      <section className="relative bg-gradient-to-br from-amber-50 to-amber-100 text-black py-20 overflow-hidden">
+        <div className="container mx-auto px-4 text-center">
+          <motion.h1 
+            className="text-5xl md:text-6xl font-bold text-gray-900 mb-6 font-serif"
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.3, duration: 0.8 }}
+          >
+            Calidad y Producción
+          </motion.h1>
+          <motion.p 
+            className="text-xl text-gray-600 max-w-2xl mx-auto"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.5, duration: 0.8 }}
+          >
+            Donde la excelencia se encuentra con la tradición en cada gota
+          </motion.p>
+        </div>
+      </section>
 
       {/* Introducción a la Calidad */}
       <SectionWrapper className="py-30 bg-white">
@@ -271,7 +289,8 @@ const Quality = () => {
               >
                 <div className="flex items-start gap-4 mb-6">
                   <div className={`text-3xl ${item.textColor}`}>
-                    {item.icon}
+                    {/* Renderizamos el componente de icono */}
+                    <item.icon className="w-10 h-10" /> 
                   </div>
                   <div>
                     <h3
@@ -296,12 +315,9 @@ const Quality = () => {
                 <ul className="space-y-3">
                   {item.features.map((feature, featureIndex) => (
                     <li key={featureIndex} className="flex items-start gap-3">
-                      <div
-                        className={`w-5 h-5 rounded-full flex items-center justify-center flex-shrink-0 mt-1 ${item.lightBgColor}`}
-                      >
-                        <div
-                          className={`w-2 h-2 rounded-full ${item.bgColor}`}
-                        ></div>
+                      {/* Reemplazamos el círculo por un icono de Lucide */}
+                      <div className="mt-1 flex-shrink-0">
+                        <ListIcon colorClass={item.textColor} />
                       </div>
                       <span className="text-gray-700">{feature}</span>
                     </li>
@@ -414,6 +430,7 @@ const Quality = () => {
                         key={idx}
                         className="flex items-center gap-2 text-gray-700"
                       >
+                        {/* Se mantiene el punto simple, ya que es un separador de lista */}
                         <div className="w-1.5 h-1.5 bg-amber-400 rounded-full"></div>
                         {attr}
                       </li>
@@ -460,7 +477,10 @@ const Quality = () => {
                 whileHover={{ scale: 1.02 }}
               >
                 <div className="flex items-start gap-4">
-                  <div className="text-3xl text-green-600">{cert.icon}</div>
+                  <div className="text-3xl text-green-600">
+                    {/* Renderizamos el componente de icono */}
+                    <cert.icon className="w-8 h-8" />
+                  </div>
                   <div>
                     <h3 className="text-xl font-serif text-green-800 mb-2">
                       {cert.name}
